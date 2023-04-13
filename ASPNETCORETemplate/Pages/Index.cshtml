@@ -1,0 +1,18 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome, @Model.Name</h1>
+    <p>ASP.NET Core is easy to learn</p>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+    <form method="post">
+        <input type="text" id="username" name="username" />
+        <input type="submit" value="Click Me!!" />
+        <br />
+        <label>@Model.Message</label>
+    </form>
+</div>
