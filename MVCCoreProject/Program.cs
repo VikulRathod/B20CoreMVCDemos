@@ -21,7 +21,18 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapControllerRoute(
+    name: "default1",
+    pattern: "{controller}/{action}/{id?}/{deptid?}");
+
+//app.MapControllerRoute(
+//    name: "default2",
+//    pattern: "{controller}/{action}/{id?}/{name?}");
+
+// routing endpoint
+app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Employee}/{action=Index}/{id?}");
+    pattern: "{controller}/{action}/{id?}");
+
+
 
 app.Run();
