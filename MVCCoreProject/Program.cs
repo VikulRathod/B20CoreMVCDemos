@@ -20,6 +20,10 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+//app.MapControllerRoute(
+//    name: "default2",
+//    pattern: "{action}/{id?}");
+
 app.MapControllerRoute(
     name: "default1",
     pattern: "{controller}/{action}/{id?}/{deptid?}");
@@ -31,7 +35,7 @@ app.MapControllerRoute(
 // routing endpoint
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller}/{action}/{id?}");
+    pattern: "{controller=Account}/{action=Index}/{id?}");
 
 
 

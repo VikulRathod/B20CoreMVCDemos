@@ -1,0 +1,26 @@
+﻿<h1>Razor Demo</h1>
+
+<form>
+    Name: <input type="text" />
+    <br />
+    <a href="vhaash-home">Login</a>
+</form>
+
+<ul>
+    @for (int i = 1; i <= 10; i++)
+    {
+        <li>@i</li>
+    }
+</ul>
+
+@{
+    List<string> names = new List<string>()
+    {"Vishal", "Mahesh", "Akash", "Priya" };
+}
+
+<ol>
+    @foreach (string name in names)
+    {
+        <li>@name</li>
+    }
+</ol>
