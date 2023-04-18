@@ -1,0 +1,32 @@
+﻿<h1>Views Demo</h1>
+
+<form>
+    <div class="form-group">
+        <lable>Name</lable>
+        <input type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Address</label>
+        <textarea class="form-control" rows="5"></textarea>
+    </div>
+    <div class="form-group">
+        <a href="http://www.flipkart.com">All categories</a>
+    </div>
+</form>
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.Label("Html Name")
+        @Html.TextBox("txtName","VHAASH TECH", new {@class="form-control"})
+    </div>
+    <div class="form-group">
+        @Html.Label("Html Address")
+        @Html.TextArea("txtAddress", new {@class="form-control", rows="5"})
+    </div>
+    <div class="form-group">
+        @Html.ActionLink("Back To Home", "Index", "Home")
+        <input type="button" value="Log In"/> | 
+        @Html.Button("button", "Sign Up")
+    </div>
+}

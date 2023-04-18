@@ -1,0 +1,32 @@
+﻿@model ProductModel
+
+<h2>Product Details</h2>
+<table>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Name)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Price)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.CategoryName)
+            @*<label>Category Name</label>*@
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.CategoryName)
+        </td>
+    </tr>
+</table>
+@*@Html.ActionLink("Back To Home", "Index","Home")*@
+<a asp-controller="Home" asp-action="Index" class="btn btn-primary">Home</a>

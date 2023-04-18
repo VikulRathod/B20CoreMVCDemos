@@ -5,7 +5,9 @@ VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ASPNETCORETemplate", "ASPNETCORETemplate\ASPNETCORETemplate.csproj", "{C9023843-DBF5-4057-847C-B55D1733111F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCCoreProject", "MVCCoreProject\MVCCoreProject.csproj", "{08698562-D053-4D37-BB65-55670632C072}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVCCoreProject", "MVCCoreProject\MVCCoreProject.csproj", "{08698562-D053-4D37-BB65-55670632C072}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewsDemo", "ViewsDemo\ViewsDemo.csproj", "{3AE10985-BD00-4F39-9497-A462A6DD8F85}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{08698562-D053-4D37-BB65-55670632C072}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08698562-D053-4D37-BB65-55670632C072}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08698562-D053-4D37-BB65-55670632C072}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AE10985-BD00-4F39-9497-A462A6DD8F85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AE10985-BD00-4F39-9497-A462A6DD8F85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AE10985-BD00-4F39-9497-A462A6DD8F85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AE10985-BD00-4F39-9497-A462A6DD8F85}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
