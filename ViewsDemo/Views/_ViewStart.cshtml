@@ -1,4 +1,18 @@
-﻿@{
+﻿@*@{
+    <script>
+        var browserName = navigator.userAgent.toLowerCase();
+
+        if (browserName.indexOf('chrome') > -1) {
+        @Layout = "_Layout";
+        } else {
+        @Layout = "_NewLayout";
+        }
+    </script>
+}*@
+
+@{
     Layout = "_Layout";
+
+    // Layout = "_NewLayout";
     ViewData["Title"] = "VHaaSh";
 }

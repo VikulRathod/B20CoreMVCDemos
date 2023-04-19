@@ -30,3 +30,14 @@
 </table>
 @*@Html.ActionLink("Back To Home", "Index","Home")*@
 <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Home</a>
+
+@*@await Component.InvokeAsync("Feedback")*@
+
+<ul>
+    @foreach (FeedbackModel feedback in ViewBag.feedbacks)
+    {
+        <li>
+            <h2>@feedback.Username : @feedback.Comment</h2>
+        </li>
+    }
+</ul>

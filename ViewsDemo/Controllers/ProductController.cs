@@ -20,6 +20,14 @@ namespace ViewsDemo.Controllers
             CategoryName = "Mens Wear"
             };
 
+            List<FeedbackModel> feedbacks = new List<FeedbackModel>()
+            {
+            new FeedbackModel(){ Username = "Atul", Comment = "Happy"},
+            new FeedbackModel(){ Username = "Vishal", Comment = "Not bad"},
+            };
+
+            ViewBag.feedbacks = feedbacks;
+
             return View(product);
         }
 

@@ -1,0 +1,10 @@
+﻿@model List<FeedbackModel>
+
+<ul>
+    @foreach(FeedbackModel feedback in Model)
+    {
+        <li>
+            <h2>@feedback.Username : @feedback.Comment</h2>
+        </li>
+    }
+</ul>
