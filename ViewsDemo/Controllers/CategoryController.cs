@@ -6,6 +6,15 @@ namespace ViewsDemo.Controllers
 {
     public class CategoryController : Controller
     {
+        IConfiguration _config;
+        string connectionString = null;
+
+        public CategoryController(IConfiguration config)
+        {
+            _config = config;
+            connectionString = _config["ConnectionStrings:B20DemoDB"];
+        }
+
         // to show list of cateogries
         public IActionResult Index()
         {
@@ -17,9 +26,9 @@ namespace ViewsDemo.Controllers
 
             List<CategoryModel> categories = new List<CategoryModel>();
 
-            string cs =
-                "server=.\\sqlexpress;database=B20DemoDB;integrated security=true;";
-            SqlConnection con = new SqlConnection(cs);
+            //string cs =
+            //    "server=.\\sqlexpress;database=B20DemoDB;integrated security=true;";
+            SqlConnection con = new SqlConnection(connectionString);
             string query = "select * from Category";
 
             SqlCommand cmd = new SqlCommand(query, con);
@@ -59,9 +68,9 @@ namespace ViewsDemo.Controllers
             //CategoryModel model =
             //    categories.Where(c => c.CategoryId == id).FirstOrDefault();
 
-            string cs =
-                "server=.\\sqlexpress;database=B20DemoDB;integrated security=true;";
-            SqlConnection con = new SqlConnection(cs);
+            //string cs =
+            //    "server=.\\sqlexpress;database=B20DemoDB;integrated security=true;";
+            SqlConnection con = new SqlConnection(connectionString);
             string query = $"select * from Category where CategoryId = {id}";
 
             SqlCommand cmd = new SqlCommand(query, con);
@@ -103,9 +112,9 @@ namespace ViewsDemo.Controllers
             //string name = form["Name"];
             //string description = form["Description"];
 
-            string cs =
-                "server=.\\sqlexpress;database=B20DemoDB;integrated security=true;";
-            SqlConnection con = new SqlConnection(cs);
+            //string cs =
+            //    "server=.\\sqlexpress;database=B20DemoDB;integrated security=true;";
+            SqlConnection con = new SqlConnection(connectionString);
             string query = $"insert into Category values ('{category.Name}', '{category.Description}')";
 
             SqlCommand cmd = new SqlCommand(query, con);
@@ -165,9 +174,9 @@ namespace ViewsDemo.Controllers
         [HttpPost]
         public IActionResult Edit(CategoryModel model)
         {
-            string cs =
-                "server=.\\sqlexpress;database=B20DemoDB;integrated security=true;";
-            SqlConnection con = new SqlConnection(cs);
+            //string cs =
+            //    "server=.\\sqlexpress;database=B20DemoDB;integrated security=true;";
+            SqlConnection con = new SqlConnection(connectionString);
             string query =
                 $"update Category set Name = '{model.Name}', Description = '{model.Description}' where CategoryId = " + model.CategoryId;
 
@@ -230,9 +239,9 @@ namespace ViewsDemo.Controllers
         [ActionName("Delete")]
         public IActionResult Delete_Confirmed(int? id)
         {
-            string cs =
-                "server=.\\sqlexpress;database=B20DemoDB;integrated security=true;";
-            SqlConnection con = new SqlConnection(cs);
+            //string cs =
+            //    "server=.\\sqlexpress;database=B20DemoDB;integrated security=true;";
+            SqlConnection con = new SqlConnection(connectionString);
             string query = $"delete from Category where CategoryId = {id}";
 
             SqlCommand cmd = new SqlCommand(query, con);
