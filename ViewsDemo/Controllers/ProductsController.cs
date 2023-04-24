@@ -25,13 +25,14 @@ namespace ViewsDemo.Controllers
             SqlConnection connection = new SqlConnection(connectionString);
             // connection.ConnectionString = connectionString;
 
-            connection.Open(); // to open connection
-
             SqlCommand cmd = new SqlCommand("select * from product", connection);
             //cmd.CommandText = "select * from product";
             //cmd.Connection = connection;
 
+            connection.Open(); // to open connection
+
             SqlDataReader reader = cmd.ExecuteReader();
+
             if (reader.HasRows)
             {
                 while (reader.Read())
@@ -85,7 +86,7 @@ namespace ViewsDemo.Controllers
             string connectionString = _config["ConnectionStrings:B20DemoDB"];
 
             SqlConnection connection = new SqlConnection(connectionString);
-            connection.Open();
+            
 
             // string cmdText = $"insert into Product values ('{product.Name}', {product.UnitPrice})";
 
@@ -104,7 +105,11 @@ namespace ViewsDemo.Controllers
             };
             cmd.Parameters.Add(status);
 
+            connection.Open();
+
             int rows = cmd.ExecuteNonQuery();
+
+            connection.Close();
 
             if ((bool)status.Value)
             {

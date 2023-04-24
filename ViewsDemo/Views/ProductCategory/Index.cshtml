@@ -1,0 +1,43 @@
+﻿@model ViewsDemo.Models.ProductCategoryModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Categories</h1>
+<table class="table">
+    <tbody>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </tbody>
+    <tbody>
+        @foreach (CategoryModel cat in Model.Categories)
+        {
+            <tr>
+                <td>@cat.Name</td>
+                <td>@cat.Description</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<hr />
+<h1>Products</h1>
+<table class="table">
+    <tbody>
+        <tr>
+            <th>Name</th>
+            <th>Unit Price</th>
+        </tr>
+    </tbody>
+    <tbody>
+        @foreach (ProductViewModel prod in Model.Products)
+        {
+            <tr>
+                <td>@prod.Name</td>
+                <td>@prod.UnitPrice</td>
+            </tr>
+        }
+    </tbody>
+</table>
