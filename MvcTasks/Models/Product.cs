@@ -1,6 +1,6 @@
-﻿namespace ViewsDemo.Models
+﻿namespace MvcTasks.Models
 {
-    public class ProductViewModel
+    public class Product
     {
         public int ProductId { get; set; }
         public string Name { get; set; }

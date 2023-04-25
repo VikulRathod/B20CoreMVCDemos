@@ -70,6 +70,8 @@ namespace ViewsDemo.Controllers
 
             string query = "select * from category;select * from Product";
             SqlDataAdapter adapter = new SqlDataAdapter(query, con);
+            // adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+            // adapter.SelectCommand.Parameters.AddWithValue("", "");
 
             DataSet ds = new DataSet();
             adapter.Fill(ds);
@@ -78,7 +80,7 @@ namespace ViewsDemo.Controllers
             {
                 catProd.Categories = new List<CategoryModel>();
                 for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
-                {                    
+                {
                     DataRow row = ds.Tables[0].Rows[i];
                     catProd.Categories.Add(
                         new CategoryModel()
@@ -90,13 +92,13 @@ namespace ViewsDemo.Controllers
 
                 catProd.Products = new List<ProductViewModel>();
                 for (int i = 0; i < ds.Tables[1].Rows.Count; i++)
-                {                    
+                {
                     DataRow row = ds.Tables[1].Rows[i];
                     catProd.Products.Add(
                         new ProductViewModel()
                         {
                             Name = row["Name"].ToString(),
-                            UnitPrice = (int) row["UnitPrice"]
+                            UnitPrice = (int)row["UnitPrice"]
                         });
                 }
             }
