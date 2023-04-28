@@ -2,16 +2,21 @@
 
 @{
     ViewData["Title"] = "Login";
+    string message = "Login View Value";
+    ViewData["message"] = message;
 }
 
 @*<h1>Login on @ViewData["site"]</h1>
 <h2>@ViewBag.welcome</h2>*@
 <h1>Login on @ViewBag.site</h1>
 <h2>@ViewData["welcome"]</h2>
+@*<h3>@TempData["commonData"]</h3>*@
+<h3>@TempData.Peek("commonData")</h3>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Login">
+        <form asp-action="Login" method="post" asp-asp-controller="Account">
+            <input type="hidden" id="website" name="website" value="VHAASH TECHNOLOGIES" />
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Username" class="control-label"></label>
@@ -24,6 +29,13 @@
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label class="control-label">Log In As</label>
+                <select id="logInAs" name="logInAs" class="form-control">
+                    <option value="user">User</option>
+                    <option value="admin">Admin</option>
+                </select>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Log In" class="btn btn-primary" />
             </div>
         </form>
@@ -31,7 +43,9 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Back to List</a> |
+    <a asp-action="Welcome" asp-route-id="10"
+    asp-route-name="vihaan" asp-route-age="4">Welcome Page</a>
 </div>
 
 @section Scripts {

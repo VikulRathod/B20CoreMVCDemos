@@ -1,2 +1,13 @@
-﻿<h1>User Dashboard for @ViewData["site"]</h1>
+﻿@using System.Text.Json;
+
+<h1>User Dashboard for @ViewData["site"]</h1>
 <h2>@ViewBag.welcome</h2>
+<h3>@ViewBag.CommonData</h3>
+
+<h3>User Details</h3>
+@{
+    LoginModel user = 
+    JsonSerializer.Deserialize<LoginModel>(TempData.Peek("user").ToString());
+}
+<p>Username: @user.Username </p>
+<p>Password:@user.Password </p>

@@ -1,1 +1,12 @@
-﻿<h1>Admin Dashboard</h1>
+﻿@using System.Text.Json;
+
+<h1>Admin Dashboard</h1>
+<h3>@ViewBag.CommonData</h3>
+<a asp-action="Index" asp-controller="Home" asp-area="User">User Dashoboard</a>
+
+@{
+    LoginModel user =
+    JsonSerializer.Deserialize<LoginModel>(TempData.Peek("user").ToString());
+}
+<p>Username: @user.Username </p>
+<p>Password:@user.Password </p>

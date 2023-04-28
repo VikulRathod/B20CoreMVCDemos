@@ -7,6 +7,9 @@ namespace DataPassingTechniquesDemo.Areas.User.Controllers
     {
         public IActionResult Index()
         {
+            // ViewBag.CommonData = TempData["commonData"];
+
+            ViewBag.CommonData = TempData.Peek("commonData");
             return View();
         }
     }
