@@ -3,6 +3,14 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+// builder.Services.AddSession(); // for adding session dependency
+builder.Services.AddSession(options =>
+{
+    //    options.IdleTimeout = TimeSpan.FromHours(1); // session timeout will be 1 hour
+    options.IdleTimeout = TimeSpan.FromMinutes(5);
+    options.Cookie.IsEssential = false;
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -17,6 +25,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseSession(); // enabling session use in middleware
 
 app.UseAuthorization();
 

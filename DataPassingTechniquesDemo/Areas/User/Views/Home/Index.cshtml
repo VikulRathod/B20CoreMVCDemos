@@ -6,8 +6,18 @@
 
 <h3>User Details</h3>
 @{
-    LoginModel user = 
+    LoginModel user =
     JsonSerializer.Deserialize<LoginModel>(TempData.Peek("user").ToString());
 }
 <p>Username: @user.Username </p>
 <p>Password:@user.Password </p>
+
+<h3>Session Username : @Context.Session.GetString("sessionUsername")</h3>
+
+@{
+    string newuser = Context.Session.GetString("NewUser");
+    LoginModel newusermodel = JsonSerializer.Deserialize<LoginModel>(newuser);
+}
+
+<h3>New Username from Session: @newusermodel.Username</h3>
+<h3>New Password from Session: @newusermodel.Password</h3>

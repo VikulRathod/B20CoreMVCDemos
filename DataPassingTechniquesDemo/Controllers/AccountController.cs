@@ -13,7 +13,7 @@ namespace DataPassingTechniquesDemo.Controllers
             ViewData["site"] = "VHaaSh Technologies";
             ViewBag.welcome = "Good Morning!!!";
 
-            TempData["commonData"] = "Common Data For All Views";                       
+            TempData["commonData"] = "Common Data For All Views";
 
             return View();
         }
@@ -31,6 +31,22 @@ namespace DataPassingTechniquesDemo.Controllers
             };
 
             TempData["user"] = JsonSerializer.Serialize(user);
+
+            // Response.Cookies.Append("DemoUsername", user.Username);
+
+            //string userDetails = JsonSerializer.Serialize(user);
+            //// Response.Cookies.Append("userDetails", userDetails);
+            //Response.Cookies.Append("userDetails", userDetails, 
+            //    new CookieOptions() { Expires = DateTime.Now.AddHours(1) });
+
+            HttpContext.Session.SetString("sessionUsername", "Vihaan");
+
+            LoginModel user1 = new LoginModel() 
+            { Username = "MIHAAN", Password = "KRISHIKA"};
+            string user2 = JsonSerializer.Serialize(user1);
+
+            HttpContext.Session.SetString("NewUser", user2);
+
 
             if (user.Username == "user" &&
                 user.Password == "user")
