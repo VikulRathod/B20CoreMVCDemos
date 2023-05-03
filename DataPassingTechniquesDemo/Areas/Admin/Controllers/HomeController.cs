@@ -23,7 +23,14 @@ namespace DataPassingTechniquesDemo.Areas.Admin.Controllers
             ViewBag.SessionUserName = HttpContext.Session.GetString("sessionUsername");
 
             string user1 = HttpContext.Session.GetString("NewUser");
-            ViewBag.NewUser = JsonSerializer.Deserialize<LoginModel>(user1);
+            if (user1 != null)
+            {
+                ViewBag.NewUser = JsonSerializer.Deserialize<LoginModel>(user1);
+            }
+            else
+            {
+                ViewBag.NewUser = "Session expired.";
+            }
 
             return View();
         }
