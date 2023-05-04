@@ -12,6 +12,7 @@
     <div class="col-md-4">
         <form asp-action="Create" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*@Html.ValidationSummary(false, "", new { @class = "text-danger" })*@
             @*<div class="form-group">
             <label asp-for="RollNumber" class="control-label"></label>
             <input asp-for="RollNumber" class="form-control" />
@@ -21,26 +22,51 @@
                 <label asp-for="Name" class="control-label"></label>
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
+                @*@Html.ValidationMessageFor(model => model.Name, "*", new { @class = "text-danger" })*@
             </div>
             <div class="form-group">
                 <label asp-for="Gender" class="control-label"></label>
-                <input asp-for="Gender" class="form-control" />
+                @*<input asp-for="Gender" class="form-control" />*@
+                <input type="radio" asp-for="Gender" value="Male"/> Male
+                <input type="radio" asp-for="Gender" value="Female" /> Female
                 <span asp-validation-for="Gender" class="text-danger"></span>
+                @*@Html.ValidationMessageFor(model => model.Gender, "*", new { @class = "text-danger" })*@
             </div>
             <div class="form-group">
                 <label asp-for="Mobile" class="control-label"></label>
                 <input asp-for="Mobile" class="form-control" />
                 <span asp-validation-for="Mobile" class="text-danger"></span>
+                @*@Html.ValidationMessageFor(model => model.Mobile, "*", new { @class = "text-danger" })*@
             </div>
             <div class="form-group">
                 <label asp-for="Email" class="control-label"></label>
                 <input asp-for="Email" class="form-control" />
                 <span asp-validation-for="Email" class="text-danger"></span>
+                @*@Html.ValidationMessageFor(model => model.Email, "*", new { @class = "text-danger" })*@
             </div>
             <div class="form-group">
                 <label asp-for="Age" class="control-label"></label>
                 <input asp-for="Age" class="form-control" />
                 <span asp-validation-for="Age" class="text-danger"></span>
+                @*@Html.ValidationMessageFor(model => model.Age, "*", new { @class = "text-danger" })*@
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+                @*@Html.ValidationMessageFor(model => model.Password, "*", new { @class = "text-danger" })*@
+            </div>
+            <div class="form-group">
+                <label asp-for="ConfirmPassword" class="control-label"></label>
+                <input asp-for="ConfirmPassword" class="form-control" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                @*@Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })*@
+            </div>
+            <div class="form-group">
+                <label asp-for="AdmissionDate" class="control-label"></label>
+                <input asp-for="AdmissionDate" class="form-control" />
+                <span asp-validation-for="AdmissionDate" class="text-danger"></span>
+                @*@Html.ValidationMessageFor(model => model.AdmissionDate, "*", new { @class = "text-danger" })*@
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

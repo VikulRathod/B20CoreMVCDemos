@@ -25,6 +25,7 @@ namespace ValidationsDemo.Controllers
             return View();
         }
 
+
         [HttpPost]
         public IActionResult Create(StudentModel student)
         {
@@ -33,6 +34,10 @@ namespace ValidationsDemo.Controllers
                 var status = _db.Insert(student);
                 if (status)
                     return RedirectToAction("Index");
+                else
+                {
+                    ModelState.AddModelError("Name", "Mobile or Email already registered");
+                }
             }
 
             return View();

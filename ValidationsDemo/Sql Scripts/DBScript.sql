@@ -95,5 +95,42 @@ begin
 		rollback
 	end catch
 end
-
-
+go
+use B20ValidationDB
+go
+select * from Student
+go
+alter table Student
+add Password varchar(30)
+go
+alter table Student
+add AdmissionDate date
+go
+select * from Student
+go
+ALTER proc [dbo].[usp_InsertStudent]
+@Name varchar(50), @Gender varchar(10), @Mobile char(10), @Email varchar(100), @Age int,
+@Password varchar(30), @AdmissionDate date, @Status bit output
+as
+begin
+	begin try
+		if not exists (Select RollNumber from Student where Mobile = @Mobile or Email = @Email)
+		begin
+			insert into Student values(@Name, @Gender, @Mobile, @Email, @Age, @Password, @AdmissionDate)
+			set @Status = 1
+		end
+		else
+		begin
+			set @Status = 0
+		end		
+	end try
+	begin catch
+		set @Status = 0
+	end catch
+end
+GO
+ALTER proc [dbo].[usp_AllStudents]
+as
+begin
+	select RollNumber, Name, Gender, Mobile, Email, Age, Password, AdmissionDate from Student
+end

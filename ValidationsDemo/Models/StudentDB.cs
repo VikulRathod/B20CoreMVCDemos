@@ -35,7 +35,11 @@ namespace ValidationsDemo.Models
                             Gender = reader.GetString("Gender"),
                             Mobile = reader.GetString("Mobile"),
                             Email = reader.GetString("Email"),
-                            Age = reader.GetInt32("Age")
+                            Age = reader.GetInt32("Age"),
+                            Password = !reader.IsDBNull("Password") ? reader.GetString("Password")
+                            : "No Password",
+                            AdmissionDate = !reader.IsDBNull("AdmissionDate") ?
+                            reader.GetDateTime("AdmissionDate") : DateTime.Parse("01/01/0001")
                         });
                     }
                 }
@@ -104,6 +108,8 @@ namespace ValidationsDemo.Models
                 cmd.Parameters.AddWithValue("@Mobile", student.Mobile);
                 cmd.Parameters.AddWithValue("@Email", student.Email);
                 cmd.Parameters.AddWithValue("@Age", student.Age);
+                cmd.Parameters.AddWithValue("@Password", student.Password);
+                cmd.Parameters.AddWithValue("@AdmissionDate", student.AdmissionDate);
 
                 SqlParameter status = new SqlParameter()
                 {
@@ -175,7 +181,7 @@ namespace ValidationsDemo.Models
                 SqlCommand cmd = new SqlCommand(commandText, con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@RollNumber", rollNumber);
-                
+
                 SqlParameter status = new SqlParameter()
                 {
                     ParameterName = "@Status",
