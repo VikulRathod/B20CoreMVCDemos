@@ -1,0 +1,21 @@
+﻿@model EFDAL.Entities.Category
+
+<table class="table">
+    <tr>
+        <td>
+            Name
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Name)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Description
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Description)
+        </td>
+    </tr>
+</table>
+<a asp-action="Index">Back To List</a>

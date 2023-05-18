@@ -1,0 +1,39 @@
+﻿@using EFDAL.Entities
+@model IEnumerable<EFDAL.Entities.Category>
+
+@if (Model != null && Model.Count() > 0)
+{
+    <a asp-action="Create">Create New</a>
+    <h2>All Categories</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Category Id
+                </th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Category category in Model)
+            {
+                <tr>
+                    <td>@category.CategoryId</td>
+                    <td>@category.Name</td>
+                    <td>@category.Description</td>
+                    <td>
+                        @Html.ActionLink("Details", "Details", new {Id = category.CategoryId}) |
+                        @Html.ActionLink("Edit", "Edit", new {Id = category.CategoryId}) |
+                        @Html.ActionLink("Delete", "Delete", new {Id = category.CategoryId})
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <h3>No Category available</h3>
+}
