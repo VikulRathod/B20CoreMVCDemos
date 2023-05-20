@@ -4,13 +4,16 @@ using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using EFDAL.Entities;
 
-namespace EFDAL
+namespace Entities.Models.Entities
 {
-    public partial class FlipkartContext : DbContext
+    public partial class FlipkartDbContext : DbContext
     {
-        public FlipkartContext(DbContextOptions<FlipkartContext> options)
+        public FlipkartDbContext()
+        {
+        }
+
+        public FlipkartDbContext(DbContextOptions<FlipkartDbContext> options)
             : base(options)
         {
         }
@@ -29,8 +32,27 @@ namespace EFDAL
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Category>(entity =>
+            {
+                entity.ToTable("Category");
+
+                entity.Property(e => e.Description)
+                    .HasMaxLength(500)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Name)
+                    .HasMaxLength(200)
+                    .IsUnicode(false);
+            });
+
             modelBuilder.Entity<Product>(entity =>
             {
+                entity.ToTable("Product");
+
+                entity.Property(e => e.Name)
+                    .HasMaxLength(500)
+                    .IsUnicode(false);
+
                 entity.HasOne(d => d.Category)
                     .WithMany(p => p.Products)
                     .HasForeignKey(d => d.CategoryId)
@@ -38,7 +60,6 @@ namespace EFDAL
                     .HasConstraintName("FK__Product__Categor__398D8EEE");
             });
 
-            OnModelCreatingGeneratedProcedures(modelBuilder);
             OnModelCreatingPartial(modelBuilder);
         }
 
