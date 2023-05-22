@@ -4,13 +4,27 @@ class Program
 {
     static void Main()
     {
-        PrintA();
-        PrintB();
+        //PrintA();
+        //PrintB();
 
-        var result = PrintC().Result;
-        Console.WriteLine(result);
+        //var result = PrintC().Result;
+        //Console.WriteLine(result);
+
+        Print();
 
         Console.ReadLine();
+    }
+
+    static void Print()
+    {
+        //PrintA();
+        //PrintB();
+
+        Thread.Sleep(2000); // force to wait for 2 secs
+
+        Task.WaitAll(PrintA(), PrintB());
+
+        Console.WriteLine("Print() Completed");
     }
 
     //static void PrintA()
