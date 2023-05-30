@@ -29,13 +29,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFCodeFirstCRDUDemo", "EFCo
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "vcart", "vcart", "{D6DB87A9-DD2C-4445-B857-9A7753F3D83F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vcart.Data", "vcart.Data\vcart.Data.csproj", "{1CFB6D4F-5AD5-48E9-86F7-BC78CA9FA811}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "vcart.Data", "vcart.Data\vcart.Data.csproj", "{1CFB6D4F-5AD5-48E9-86F7-BC78CA9FA811}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vcart.Repositories", "vcart.Repositories\vcart.Repositories.csproj", "{11EA3EF7-F582-4712-A712-4B44C34010AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "vcart.Repositories", "vcart.Repositories\vcart.Repositories.csproj", "{11EA3EF7-F582-4712-A712-4B44C34010AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vcart.services", "vcart.services\vcart.services.csproj", "{16D87B6D-DE3E-4013-940D-7E8BB867D049}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "vcart.services", "vcart.services\vcart.services.csproj", "{16D87B6D-DE3E-4013-940D-7E8BB867D049}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vcart.Web", "vcart.Web\vcart.Web.csproj", "{B218D42E-ED29-4203-ADA3-F926673634D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "vcart.Web", "vcart.Web\vcart.Web.csproj", "{B218D42E-ED29-4203-ADA3-F926673634D9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "webapidemo", "webapidemo", "{7EB7FC66-3BA2-4401-975A-50F55AF2F7F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiFirst", "WebApiFirst\WebApiFirst.csproj", "{6ACBF7EC-DD78-4567-9B28-0EDF83B19036}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -107,6 +111,10 @@ Global
 		{B218D42E-ED29-4203-ADA3-F926673634D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B218D42E-ED29-4203-ADA3-F926673634D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B218D42E-ED29-4203-ADA3-F926673634D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6ACBF7EC-DD78-4567-9B28-0EDF83B19036}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6ACBF7EC-DD78-4567-9B28-0EDF83B19036}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6ACBF7EC-DD78-4567-9B28-0EDF83B19036}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6ACBF7EC-DD78-4567-9B28-0EDF83B19036}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -116,6 +124,7 @@ Global
 		{11EA3EF7-F582-4712-A712-4B44C34010AA} = {D6DB87A9-DD2C-4445-B857-9A7753F3D83F}
 		{16D87B6D-DE3E-4013-940D-7E8BB867D049} = {D6DB87A9-DD2C-4445-B857-9A7753F3D83F}
 		{B218D42E-ED29-4203-ADA3-F926673634D9} = {D6DB87A9-DD2C-4445-B857-9A7753F3D83F}
+		{6ACBF7EC-DD78-4567-9B28-0EDF83B19036} = {7EB7FC66-3BA2-4401-975A-50F55AF2F7F0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {88C8B286-CD62-4A08-92F9-C3D8A824A255}
