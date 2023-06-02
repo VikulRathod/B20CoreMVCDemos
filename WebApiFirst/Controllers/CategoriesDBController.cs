@@ -6,31 +6,48 @@ using WebApiFirst.Models;
 
 namespace WebApiFirst.Controllers
 {
-    [Route("[controller]")]
+    // [Route("api/[controller]/[action]")]
+    [Route("api/[controller]")]
     [ApiController]
-    public class CategoriesDBController : ControllerBase
+    public class CategoriesController : ControllerBase
     {
         AppDbContext _db;
-        public CategoriesDBController(AppDbContext db)
+        public CategoriesController(AppDbContext db)
         {
             _db = db;
         }
 
-        //[HttpGet(Name = "GetAll")]
-        //public IActionResult GetAll()
-        //{
-        //    var categories = _db.Categories.ToList();
-        //    return Ok(categories);
-        //}
-
-        [HttpGet(Name = "GetAllAsync")]
-        public async Task<IActionResult> GetAllAsync()
+        [HttpGet(Name = "GetCategories")]
+        public IActionResult GetCategories()
         {
-            var categories = await _db.Categories.ToListAsync();
+            var categories = _db.Categories.ToList();
             return Ok(categories);
         }
 
-        [ProducesResponseType(StatusCodes.Status201Created,Type = typeof(Category))]
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id)
+        {
+            if (id <= 0)
+                return BadRequest("Please correct category id");
+
+            Category cat = _db.Categories.Find(id);
+
+            if (cat != null)
+            {
+                return Ok(cat);
+            }
+
+            return NotFound($"{id} category does not exists");
+        }
+
+        //[HttpGet(Name = "GetAllAsync")]
+        //public async Task<IActionResult> GetAllAsync()
+        //{
+        //    var categories = await _db.Categories.ToListAsync();
+        //    return Ok(categories);
+        //}
+
+        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(Category))]
         [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(string))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
         [HttpPost]
@@ -53,7 +70,7 @@ namespace WebApiFirst.Controllers
                 }
                 catch (Exception ex)
                 {
-                    return StatusCode(StatusCodes.Status500InternalServerError, 
+                    return StatusCode(StatusCodes.Status500InternalServerError,
                         ex.Message);
                 }
             }
@@ -67,7 +84,7 @@ namespace WebApiFirst.Controllers
         [HttpPut]
         public IActionResult Update(int id, CategoryModel category)
         {
-            if(id != category.Id)
+            if (id != category.Id)
                 return BadRequest("Please correct category Id");
 
             if (ModelState.IsValid)

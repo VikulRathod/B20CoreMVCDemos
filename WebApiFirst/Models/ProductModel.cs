@@ -2,17 +2,19 @@
 
 namespace WebApiFirst.Models
 {
-    public class CategoryModel
+    public class ProductModel
     {
         public int Id { get; set; }
 
         [Required]
-        [StringLength(100, MinimumLength = 5)]
         public string Name { get; set; }
 
         [Required]
-        public bool IsActive { get; set; }
+        [Range(100, 1000)]
+        public int UnitPrice { get; set; }
 
-        public ICollection<ProductModel> Products { get; set; }
+        public int CategoryId { get; set; }
+
+        public CategoryModel Category { get; set; }
     }
 }
