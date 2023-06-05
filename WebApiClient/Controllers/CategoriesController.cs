@@ -22,7 +22,7 @@ namespace WebApiClient.Controllers
             //client.BaseAddress = new Uri("https://localhost:7292/api/");
 
             string result =
-                client.GetStringAsync(baseAddress + "Categories").Result;
+                client.GetStringAsync(baseAddress + "Categories/?type="+"true").Result;
 
             List<CategoryModel> categories =
     JsonSerializer.Deserialize<List<CategoryModel>>(result);
@@ -43,5 +43,7 @@ namespace WebApiClient.Controllers
 
             return View(category);
         }
+
+
     }
 }

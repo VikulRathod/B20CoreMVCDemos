@@ -5,15 +5,15 @@ namespace WebApiClient.Models
 {
     public class CategoryModel
     {
-        [JsonPropertyName("id")]
+        // [JsonPropertyName("id")]
         public int Id { get; set; }
 
-        [JsonPropertyName("name")]
+        // [JsonPropertyName("name")]
         [Required]
         [StringLength(100, MinimumLength = 5)]
         public string Name { get; set; }
 
-        [JsonPropertyName("isActive")]
+        // [JsonPropertyName("isActive")]
         [Required]
         public bool IsActive { get; set; }
 

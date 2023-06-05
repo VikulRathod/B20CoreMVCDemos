@@ -17,11 +17,21 @@ namespace WebApiFirst.Controllers
             _db = db;
         }
 
+        // [Produces("application/xml")]
         [HttpGet(Name = "GetCategories")]
-        public IActionResult GetCategories()
+        public IActionResult GetCategories(int version = 1)
         {
-            var categories = _db.Categories.ToList();
-            return Ok(categories);
+            if (version == 1)
+            {
+                var categories = _db.Categories.ToList();
+                return Ok(categories);
+            }
+            else if(version == 2)
+            {
+                var categories = _db.Categories.Where(c => c.IsActive).ToList();
+                return Ok(categories);
+            }
+            return Ok(null);
         }
 
         [HttpGet("{id}")]

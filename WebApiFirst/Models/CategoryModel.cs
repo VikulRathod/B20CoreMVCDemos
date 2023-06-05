@@ -13,6 +13,6 @@ namespace WebApiFirst.Models
         [Required]
         public bool IsActive { get; set; }
 
-        public ICollection<ProductModel> Products { get; set; }
+        // public ICollection<ProductModel> Products { get; set; }
     }
 }
