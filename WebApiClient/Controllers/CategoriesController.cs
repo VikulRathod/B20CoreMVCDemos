@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 using WebApiClient.Models;
+using System.Net.Http.Headers;
 
 namespace WebApiClient.Controllers
 {
@@ -21,11 +22,19 @@ namespace WebApiClient.Controllers
             //HttpClient client = new HttpClient();
             //client.BaseAddress = new Uri("https://localhost:7292/api/");
 
+            //string result =
+            //    client.GetStringAsync(baseAddress + "Categories/?type="+"true").Result;
+
+            string accessToken = HttpContext.Session.GetString("accessToken");
+
+            client.DefaultRequestHeaders.Authorization =
+                new AuthenticationHeaderValue("Bearer", accessToken);
+
             string result =
-                client.GetStringAsync(baseAddress + "Categories/?type="+"true").Result;
+                client.GetStringAsync(baseAddress + "Categories").Result;
 
             List<CategoryModel> categories =
-    JsonSerializer.Deserialize<List<CategoryModel>>(result);
+                JsonSerializer.Deserialize<List<CategoryModel>>(result);
 
             return View(categories);
         }

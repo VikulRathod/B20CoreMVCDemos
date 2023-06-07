@@ -1,0 +1,57 @@
+﻿<h2>Create Product</h2>
+<table>
+    <tr>
+        <td>Name</td>
+        <td>
+            <input type="text" id="Name" />
+        </td>
+    </tr>
+    <tr>
+        <td>Unit Price</td>
+        <td>
+            <input type="text" id="UnitPrice" />
+        </td>
+    </tr>
+    <tr>
+        <td>Category</td>
+        <td>
+            <input type="text" id="CategoryId" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="button" value="Create Product" class="btn btn-primary" id="btnCreate" />
+        </td>
+    </tr>
+</table>
+
+<script>
+
+    $("#btnCreate").click(function () {
+        var name = $("#Name").val();
+        var unitPrice = parseInt($("#UnitPrice").val());
+        var categoryId = parseInt($("#CategoryId").val());
+
+        // var product = { Id:0, Name: name, UnitPrice: unitPrice, CategoryId: categoryId };
+        var product = { id: 0, name: name, unitPrice: unitPrice, categoryId: categoryId };
+
+        $.ajax({
+            url: 'https://localhost:7292/api/products',
+            type:'POST',
+            data: JSON.stringify(product),
+            dataType: 'json',
+            contentType: 'application/json',
+            headers: {
+                'Accept': 'application/json'
+                // 'Authorization': 'token key'
+            },
+            success: function(response){
+                alert('api call success');
+            },
+            error: function (reason){
+                alert('api call failed');
+            }        
+        });
+    });
+
+</script>

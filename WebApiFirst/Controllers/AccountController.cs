@@ -52,6 +52,7 @@ namespace WebApiFirst.Controllers
 
         // POST domain/api/account/login
         [HttpPost]
+        [Route("Login")]
         public IActionResult Login(LoginModel loginModel)
         {
             if(loginModel != null)
