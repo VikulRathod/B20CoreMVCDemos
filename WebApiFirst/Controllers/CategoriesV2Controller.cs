@@ -19,7 +19,7 @@ namespace WebApiFirst.Controllers
         public IActionResult GetCategories(string type)
         {
             bool expType;
-            List<Category> categories = null;
+            List<Category> categories = new List<Category>();
             bool isValidType = bool.TryParse(type, out expType);
 
             if (!string.IsNullOrEmpty(type) && !isValidType)
@@ -28,7 +28,8 @@ namespace WebApiFirst.Controllers
             }
             else
             {
-                categories = _db.Categories.Where(c => c.IsActive == expType).ToList();
+                categories = _db.Categories.Where(c => c.IsActive == expType)
+                    .ToList();
             }
 
             // var categories = _db.Categories.ToList();

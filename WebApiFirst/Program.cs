@@ -98,15 +98,15 @@ builder.Services.AddCors(options =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    // app.UseSwaggerUI();
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("https://localhost:7292/swagger/v1/swagger.json", "B20DemoAPIV1");
-    });
-}
+//if (app.Environment.IsDevelopment())
+//{
+//    app.UseSwagger();
+//    // app.UseSwaggerUI();
+//    app.UseSwaggerUI(c =>
+//    {
+//        c.SwaggerEndpoint("https://localhost:7292/swagger/v1/swagger.json", "B20DemoAPIV1");
+//    });
+//}
 
 app.UseHttpsRedirection();
 

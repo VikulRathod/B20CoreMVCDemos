@@ -41,7 +41,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "webapidemo", "webapidemo", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiFirst", "WebApiFirst\WebApiFirst.csproj", "{6ACBF7EC-DD78-4567-9B28-0EDF83B19036}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiClient", "WebApiClient\WebApiClient.csproj", "{02F98CD5-4E74-4A4F-B392-67A56240E2F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiClient", "WebApiClient\WebApiClient.csproj", "{02F98CD5-4E74-4A4F-B392-67A56240E2F4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Assignments", "Assignments", "{142F35A3-10C5-4D84-A30E-05578C053EA7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadingCSVFile", "ReadingCSVFile\ReadingCSVFile.csproj", "{02622C1F-A495-4337-8E92-5A95C7F8EE98}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -121,6 +125,10 @@ Global
 		{02F98CD5-4E74-4A4F-B392-67A56240E2F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02F98CD5-4E74-4A4F-B392-67A56240E2F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02F98CD5-4E74-4A4F-B392-67A56240E2F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02622C1F-A495-4337-8E92-5A95C7F8EE98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02622C1F-A495-4337-8E92-5A95C7F8EE98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02622C1F-A495-4337-8E92-5A95C7F8EE98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02622C1F-A495-4337-8E92-5A95C7F8EE98}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -132,6 +140,7 @@ Global
 		{B218D42E-ED29-4203-ADA3-F926673634D9} = {D6DB87A9-DD2C-4445-B857-9A7753F3D83F}
 		{6ACBF7EC-DD78-4567-9B28-0EDF83B19036} = {7EB7FC66-3BA2-4401-975A-50F55AF2F7F0}
 		{02F98CD5-4E74-4A4F-B392-67A56240E2F4} = {7EB7FC66-3BA2-4401-975A-50F55AF2F7F0}
+		{02622C1F-A495-4337-8E92-5A95C7F8EE98} = {142F35A3-10C5-4D84-A30E-05578C053EA7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {88C8B286-CD62-4A08-92F9-C3D8A824A255}

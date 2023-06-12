@@ -42,7 +42,7 @@ namespace WebApiFirst.Controllers
             if (id <= 0)
                 return BadRequest("Please correct category id");
 
-            Category cat = _db.Categories.Find(id);
+            Category? cat = _db.Categories.Find(id);
 
             if (cat != null)
             {
@@ -134,7 +134,7 @@ namespace WebApiFirst.Controllers
             if (id <= 0)
                 return BadRequest("Please correct category Id");
 
-            Category cat = _db.Categories.Find(id);
+            Category? cat = _db.Categories.Find(id);
 
             if (cat != null)
             {

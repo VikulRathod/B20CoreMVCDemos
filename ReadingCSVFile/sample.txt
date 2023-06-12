@@ -1,0 +1,6 @@
+Id,SymbolName,OpenValue,VolumeValue
+1,sym1.txt,0,50
+2,sym2.test,50,55
+3,sym3.nse,15,456
+4,sym4.nse,45,45.5
+5,sym5.csv,0,56.6

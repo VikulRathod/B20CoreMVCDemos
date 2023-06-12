@@ -32,13 +32,16 @@ namespace WebApiFirst.Controllers
             if (prod != null)
             {
                 Category category = _db.Categories.Find(prod.CategoryId);
-                prod.Category = new Category()
+                if (category != null)
                 {
-                    Id = category.Id,
-                    Name = category.Name,
-                    IsActive = category.IsActive
-                };
-                return Ok(prod);
+                    prod.Category = new Category()
+                    {
+                        Id = category.Id,
+                        Name = category.Name,
+                        IsActive = category.IsActive
+                    };
+                    return Ok(prod);
+                }
             }
 
             return NotFound($"{id} product does not exists");
